@@ -1,0 +1,41 @@
+<div class="bg-white py-5">
+  <div class="container">
+    <h1 class="d-flex align-items-center">
+      Tools
+      <ui-tool-form
+        *ngIf="auth.isLoggedIn$ | async"
+        title="Create Tool"
+        mode="create"
+      ></ui-tool-form>
+    </h1>
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="bg-light py-3 px-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div
+        class="col-12 col-lg-6 py-3"
+        *ngFor="let tool of tools$ | async; let i = index"
+      >
+        <ui-tool-card
+          [tool]="tool"
+          [index]="i"
+          [expanded]="true"
+        ></ui-tool-card>
+      </div>
+    </div>
+  </div>
+</div>

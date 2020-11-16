@@ -1,0 +1,63 @@
+<button
+  class="btn btn-primary btn-sm ml-2 shadow-sm"
+  (click)="showModal = true"
+  [ngClass]="{
+    'btn-create': mode === 'create',
+    'btn-edit': mode === 'edit'
+  }"
+>
+  <i
+    class="fa"
+    [ngClass]="{
+      'fa-plus': mode === 'create',
+      'fa-pen': mode === 'edit'
+    }"
+  ></i>
+</button>
+<ui-modal *ngIf="showModal" (dismiss)="showModal = false">
+  <ng-container modalTitle>{{ mode + " product" }}</ng-container>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <ui-input label="Title" [control]="form.controls.title"></ui-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ui-input
+          label="Description"
+          controlType="textarea"
+          [control]="form.controls.description"
+        ></ui-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ui-input label="Url" [control]="form.controls.url"></ui-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ui-input label="Cover" [control]="form.controls.cover"></ui-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ui-input
+          label="Featured"
+          type="checkbox"
+          [control]="form.controls.featured"
+        ></ui-input>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button
+      *ngIf="product.id"
+      class="btn btn-danger ml-1"
+      type="button"
+      (click)="onDelete()"
+    >
+      Delete
+    </button>
+  </form>
+</ui-modal>

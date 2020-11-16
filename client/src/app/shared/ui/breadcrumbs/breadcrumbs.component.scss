@@ -1,0 +1,12 @@
+nav {
+  position: absolute;
+  margin-top: -40px;
+}
+
+.breadcrumb-item a {
+  color: white;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: white;
+}

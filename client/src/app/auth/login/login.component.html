@@ -1,0 +1,26 @@
+<button class="btn btn-primary btn-sm login" (click)="showModal = !showModal">
+  <i class="fa fa-cog"></i>
+</button>
+<ui-modal *ngIf="showModal" (dismiss)="showModal = false">
+  <ng-container modalTitle>Login</ng-container>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <ui-input
+          label="Username"
+          [control]="form.controls.username"
+        ></ui-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ui-input
+          label="Password"
+          type="password"
+          [control]="form.controls.password"
+        ></ui-input>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</ui-modal>

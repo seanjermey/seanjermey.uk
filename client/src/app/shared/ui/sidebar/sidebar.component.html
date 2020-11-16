@@ -1,0 +1,17 @@
+<div
+  class="theme-sidebar flex-shrink-0 align-self-stretch collapse"
+  [ngClass]="{ show: sidebarOpen$ | async }"
+>
+  <div class="bg-dark text-light shadow-lg">
+    <div class="d-flex h-100 flex-column">
+      <div class="flex-grow-1 p-3">
+        <ui-navigation direction="column"></ui-navigation>
+      </div>
+      <div class="flex-grow-0 align-items-center">
+        <ui-social-links
+          class="d-flex align-items-center justify-content-center"
+        ></ui-social-links>
+      </div>
+    </div>
+  </div>
+</div>

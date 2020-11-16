@@ -1,0 +1,7 @@
+<ul class="nav" [ngClass]="classes">
+  <li class="nav-item" *ngFor="let socialLink of socialLinks$ | async">
+    <a class="nav-link text-white px-3" [href]="socialLink.url" target="_blank">
+      <i class="fa" [ngClass]="socialLink.icon"></i>
+    </a>
+  </li>
+</ul>

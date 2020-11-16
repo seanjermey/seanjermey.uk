@@ -1,0 +1,67 @@
+<ng-container *ngIf="controlType === 'input' && type === 'checkbox'">
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" [formControl]="control" />
+      <label class="form-check-label">
+        {{ label }}
+      </label>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="controlType === 'textarea'">
+  <div class="form-group">
+    <label>{{ label }}</label>
+    <textarea class="form-control" [formControl]="control" rows="3"></textarea>
+    <div *ngIf="showErrors()" class="valid-feedback">
+      <p *ngIf="control.errors.required">
+        Value is required
+      </p>
+      <p *ngIf="control.errors.minlength">
+        Value you entered is
+        {{ control.errors.minlength.actualLength }}
+        characters long, but it must be at least
+        {{ control.errors.minlength.requiredLength }}
+      </p>
+      <p *ngIf="control.errors.maxlength">
+        Value you entered is
+        {{ control.errors.maxlength.actualLength }}
+        characters long, but it must be at more
+        {{ control.errors.maxlength.requiredLength }}
+      </p>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="controlType === 'input' && type !== 'checkbox'">
+  <div class="form-group">
+    <label>{{ label }}</label>
+    <input class="form-control" [type]="type" [formControl]="control" />
+    <div *ngIf="showErrors()" class="valid-feedback">
+      <p *ngIf="control.errors.required">
+        Value is required
+      </p>
+      <p *ngIf="control.errors.email">
+        Enter a valid email
+      </p>
+      <p *ngIf="control.errors.minlength">
+        Value you entered is
+        {{ control.errors.minlength.actualLength }}
+        characters long, but it must be at least
+        {{ control.errors.minlength.requiredLength }}
+      </p>
+      <p *ngIf="control.errors.maxlength">
+        Value you entered is
+        {{ control.errors.maxlength.actualLength }}
+        characters long, but it must be at more
+        {{ control.errors.maxlength.requiredLength }}
+      </p>
+      <p *ngIf="control.errors.nonUniqueUsername">
+        Username is taken
+      </p>
+      <p *ngIf="control.errors.noConnection">
+        Can't tell if username is taken
+      </p>
+    </div>
+  </div>
+</ng-container>

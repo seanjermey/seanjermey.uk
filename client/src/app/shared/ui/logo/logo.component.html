@@ -1,0 +1,11 @@
+<div class="d-flex">
+  <div
+    style="width: 35px;"
+    class="d-flex align-items-center justify-content-center mr-2"
+  >
+    <i class="icon fa text-white" [ngClass]="'fa-' + icon"></i>
+  </div>
+  <div>
+    {{ siteName$ | async }}
+  </div>
+</div>

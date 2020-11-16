@@ -1,0 +1,26 @@
+.col {
+  width: 14.2857143%;
+  height: 14.2857143vw;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: initial;
+  padding: 0;
+
+  @media screen and (max-width: 992px) {
+    width: 20%;
+    height: 20vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 33.3334%;
+    height: 33.3334vw;
+  }
+}
+
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  padding: 15px
+}

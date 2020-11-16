@@ -1,0 +1,13 @@
+<nav class="navigation" [ngClass]="classes">
+  <ul class="nav" [ngClass]="'flex-' + direction">
+    <li class="nav-item" *ngFor="let navigationItem of navigation$ | async">
+      <a
+        class="nav-link text-light"
+        [routerLink]="navigationItem.url"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+        >{{ navigationItem.label }}</a
+      >
+    </li>
+  </ul>
+</nav>

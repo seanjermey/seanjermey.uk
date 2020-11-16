@@ -1,0 +1,31 @@
+<div class="card flex-column flex-sm-row shadow-sm border-0 mb-6">
+  <ui-service-form
+    *ngIf="auth.isLoggedIn$ | async"
+    title="Edit Service"
+    [service]="service"
+    mode="edit"
+  ></ui-service-form>
+  <div
+    class="card-cover col-12 col-sm-6"
+    [title]="service.cover.title"
+    [ngStyle]="{
+      'background-image': 'url(' + service.cover.url + ')'
+    }"
+  >
+    <i
+      *ngIf="auth.isLoggedIn$ | async"
+      class="icon-featured fa-star"
+      (click)="setFeatured()"
+      [ngClass]="{ fas: service.featured, far: !service.featured }"
+    ></i>
+  </div>
+  <div class="card-body p-4 col-12 col-sm-6">
+    <h5 class="card-title mb-4" [innerHTML]="service.title"></h5>
+    <p class="card-text" [innerHTML]="service.description"></p>
+    <div class="d-flex">
+      <a [href]="service.url" class="card-link btn btn-primary ml-auto">
+        View
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.theme-wrapper {
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: 55px;
+}
+
+.theme-sidebar {
+  width: 254px;
+  margin-left: -254px;
+  transition: margin-left .3s;
+  height: inherit !important;
+  z-index: 9999;
+
+  > div {
+    position: fixed;
+    bottom: 0;
+    top: 55px;
+    width: 255px;
+  }
+
+  &.collapse {
+    display: block !important;
+
+    &.show {
+      margin-left: 0px;
+    }
+  }
+
+}

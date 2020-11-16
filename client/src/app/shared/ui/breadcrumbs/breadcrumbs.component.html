@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-transparent p-0 m-0">
+    <li class="breadcrumb-item">
+      <a routerLink="/">
+        <i class="fa fa-lg fa-home"></i>
+      </a>
+    </li>
+    <ng-container *ngFor="let breadcrumb of breadcrumbs; let i = index">
+      <li class="breadcrumb-item">
+        <a routerLink="{{ breadcrumb.url }}">{{ breadcrumb.label }}</a>
+      </li>
+    </ng-container>
+  </ol>
+</nav>

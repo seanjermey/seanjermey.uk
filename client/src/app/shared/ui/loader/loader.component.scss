@@ -1,0 +1,20 @@
+.fade {
+  z-index: 999;
+  pointer-events: none;
+}
+
+.icon {
+  color: white;
+  font-size: 14rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.icon-shadow {
+  color: rgba(0,0,0,.125);
+  font-size: 59rem;
+  position: absolute;
+  top: -9rem;
+  left: 25%;
+}

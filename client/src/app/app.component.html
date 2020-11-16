@@ -1,0 +1,22 @@
+<!--<ui-loader></ui-loader>-->
+<ng-container>
+  <auth-login *ngIf="!(auth.isLoggedIn$ | async)"></auth-login>
+  <auth-logout *ngIf="auth.isLoggedIn$ | async"></auth-logout>
+  <theme-header>
+    <ui-navigation class="d-none d-md-block"></ui-navigation>
+    <ui-social-links class="d-none d-md-flex"></ui-social-links>
+  </theme-header>
+  <main>
+    <ui-sidebar></ui-sidebar>
+    <ui-jumbotron
+      [icon]="(routeData && routeData.icon) || 'desktop'"
+    ></ui-jumbotron>
+    <theme-content>
+      <router-outlet></router-outlet>
+    </theme-content>
+    <theme-footer>
+      <ui-navigation class="d-none d-md-block"></ui-navigation>
+      <ui-social-links></ui-social-links>
+    </theme-footer>
+  </main>
+</ng-container>

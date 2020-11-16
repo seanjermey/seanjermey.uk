@@ -1,0 +1,15 @@
+.modal-content, .modal-header {
+  border-radius: 0;
+}
+
+.actions:empty {
+  display: none;
+}
+
+.actions-default {
+  display: none;
+}
+
+.actions:empty + actions-default {
+  display: block;
+}

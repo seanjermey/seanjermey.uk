@@ -1,0 +1,18 @@
+<div class="container-fluid container-lg mb-0 pt-5 mb-lg-5">
+  <h1 class="d-flex align-items-center">
+    {{ title }}
+    <ui-project-form
+      *ngIf="auth.isLoggedIn$ | async"
+      title="Create Project"
+      mode="create"
+    ></ui-project-form>
+  </h1>
+  <div class="row pt-4 pt-lg-0">
+    <div
+      class="col-12 p-0 px-lg-2 py-lg-4"
+      *ngFor="let project of projects; let i = index"
+    >
+      <ui-project-card [project]="project" [index]="i"></ui-project-card>
+    </div>
+  </div>
+</div>

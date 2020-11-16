@@ -1,0 +1,70 @@
+<div *ngIf="!expanded" class="card shadow-sm p-3">
+  <ui-tool-form
+    *ngIf="auth.isLoggedIn$ | async"
+    title="Edit Tool"
+    [tool]="tool"
+    mode="edit"
+  ></ui-tool-form>
+  <a
+    [href]="tool.url"
+    [title]="tool.title"
+    class="d-flex align-items-center flex-fill"
+    target="_blank"
+  >
+    <i
+      *ngIf="auth.isLoggedIn$ | async"
+      class="icon-featured fa-star text-primary"
+      (click)="setFeatured()"
+      [ngClass]="{ fas: tool.featured, far: !tool.featured }"
+    ></i>
+    <img [src]="tool.logo.url" class="card-img-top" [alt]="tool.logo.title" />
+  </a>
+</div>
+<div
+  *ngIf="expanded"
+  class="card border-0 shadow-sm"
+  [ngClass]="{
+    'flex-row': index % 2 == 1,
+    'flex-row-reverse': index % 2 == 0,
+    'flex-lg-row': index % 4 == 0 || index % 4 == 1,
+    'flex-lg-row-reverse': index % 4 == 2 || index % 4 == 3
+  }"
+  style="border-radius: 0;"
+>
+  <ui-tool-form
+    *ngIf="auth.isLoggedIn$ | async"
+    title="Edit Tool"
+    [tool]="tool"
+    mode="edit"
+  ></ui-tool-form>
+  <div
+    class="card-cover bg-dark flex-shrink-0 p-3 position-relative"
+    style="width: 200px;"
+  >
+    <i
+      *ngIf="auth.isLoggedIn$ | async"
+      class="icon-featured fa-star text-secondary"
+      (click)="setFeatured()"
+      [ngClass]="{ fas: tool.featured, far: !tool.featured }"
+    ></i>
+    <div
+      class="shadow-sm d-flex align-items-center flex-fill bg-white p-3 w-100 h-100"
+      style="border-radius: 0.5em;"
+    >
+      <img [src]="tool.logo.url" class="card-img-top" [alt]="tool.logo.title" />
+    </div>
+  </div>
+  <div class="card-body border-0 p-3">
+    <h5 class="card-title mb-4" [innerHTML]="tool.title"></h5>
+    <p class="card-text" [innerHTML]="tool.description"></p>
+    <div class="d-flex">
+      <a
+        [href]="tool.url"
+        class="card-link btn btn-primary ml-auto"
+        target="_blank"
+      >
+        Visit Website
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.jumbotron {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 16em;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.icon {
+  color: white;
+  font-size: 14rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.icon-shadow {
+  color: rgba(0,0,0,.125);
+  font-size: 59rem;
+  position: absolute;
+  top: -9rem;
+  left: 25%;
+}

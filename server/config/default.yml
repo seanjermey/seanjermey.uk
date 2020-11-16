@@ -1,0 +1,7 @@
+db:
+  type: 'postgres'
+  port: 5432
+  database: 'seanjermey_uk'
+
+jwt:
+  expiresIn: 3600

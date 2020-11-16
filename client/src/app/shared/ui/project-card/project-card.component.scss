@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+}
+
+.card-cover {
+  min-height: 150px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+}
+
+button {
+  position: absolute;
+  border-radius: 100%;
+  overflow: hidden;
+  right: 5px;
+  top: 5px;
+  transform: translate(50%, -50%);
+  z-index: 999999;
+}

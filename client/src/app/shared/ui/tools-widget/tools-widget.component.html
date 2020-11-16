@@ -1,0 +1,22 @@
+<div class="container mb-4">
+  <h1 class="d-flex align-items-center">
+    {{ title }}
+    <ui-tool-form
+      *ngIf="auth.isLoggedIn$ | async"
+      title="Create Tool"
+      mode="create"
+    ></ui-tool-form>
+  </h1>
+</div>
+<div class="bg-dark d-flex flex-wrap w-100">
+  <div
+    class="col d-flex align-items-center justify-content-center p-3"
+    *ngFor="let tool of tools; let i = index"
+    [ngClass]="{
+      'bg-darker': i % 2 == 0,
+      'bg-dark': i % 2 != 0
+    }"
+  >
+    <ui-tool-card [tool]="tool"></ui-tool-card>
+  </div>
+</div>

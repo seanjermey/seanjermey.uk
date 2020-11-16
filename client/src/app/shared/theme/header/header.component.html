@@ -1,0 +1,21 @@
+<div class="theme-header bg-gradient pb-1 fixed-top shadow">
+  <div class="bg-dark">
+    <nav class="navbar navbar-dark">
+      <div class="container px-0">
+        <a class="navbar-brand" routerLink="/" (click)="closeSidebar()">
+          <ui-logo></ui-logo>
+        </a>
+        <div class="d-flex">
+          <ng-content></ng-content>
+          <button
+            class="navbar-toggler d-block d-md-none"
+            type="button"
+            (click)="toggleSidebar()"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div
+  class="card flex-column shadow-sm border-0 mb-6"
+  [ngClass]="{
+    'flex-sm-row-reverse': index % 2 == 0,
+    'flex-sm-row': index % 2 != 0
+  }"
+>
+  <ui-project-form
+    *ngIf="auth.isLoggedIn$ | async"
+    title="Edit Project"
+    [project]="project"
+    mode="edit"
+  ></ui-project-form>
+  <div
+    class="card-cover col-12 col-sm-6 col-lg-4"
+    [ngStyle]="{
+      'background-image': 'url(' + project.cover.url + ')'
+    }"
+  >
+    <i
+      *ngIf="auth.isLoggedIn$ | async"
+      class="icon-featured fa-star"
+      (click)="setFeatured()"
+      [ngClass]="{ fas: project.featured, far: !project.featured }"
+    ></i>
+  </div>
+  <div class="card-body col-12 col-sm-6 col-lg-8 p-5">
+    <h5 class="card-title mb-4" [innerHTML]="project.title"></h5>
+    <p class="card-text" [innerHTML]="project.description"></p>
+    <div class="d-flex">
+      <a [href]="project.url" class="card-link btn btn-primary ml-auto">
+        View
+      </a>
+    </div>
+  </div>
+</div>

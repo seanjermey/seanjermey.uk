@@ -1,0 +1,22 @@
+<div class="theme-footer bg-gradient pt-2 shadow">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" routerLink="home" (click)="closeSidebar()">
+        <ui-logo></ui-logo>
+      </a>
+      <div class="d-flex">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </nav>
+  <div class="bg-darker text-light small text-muted p-4">
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <div>Copyright &copy; 2020. {{ siteName$ | async }}</div>
+        <div>
+          <a class="text-muted" routerLink="privacy">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

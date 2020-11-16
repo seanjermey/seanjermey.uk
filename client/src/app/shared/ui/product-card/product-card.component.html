@@ -1,0 +1,30 @@
+<div class="card shadow-sm border-0 mb-6">
+  <ui-product-form
+    *ngIf="auth.isLoggedIn$ | async"
+    title="Edit Product"
+    [product]="product"
+    mode="edit"
+  ></ui-product-form>
+  <div
+    class="card-cover"
+    [ngStyle]="{
+      'background-image': 'url(' + product.cover.url + ')'
+    }"
+  >
+    <i
+      *ngIf="auth.isLoggedIn$ | async"
+      class="icon-featured fa-star"
+      (click)="setFeatured()"
+      [ngClass]="{ fas: product.featured, far: !product.featured }"
+    ></i>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title mb-4" [innerHTML]="product.title"></h5>
+    <p class="card-text" [innerHTML]="product.description"></p>
+    <div class="d-flex">
+      <a [href]="product.url" class="card-link btn btn-primary ml-auto">
+        View
+      </a>
+    </div>
+  </div>
+</div>
