@@ -30,4 +30,4 @@ jobs:
           environment_name: ${{ secrets.AWS_EB_ENV }}
           version_label: ${{ secrets.AWS_EB_APP }}-deploy-instance-${{ github.run_id }}.${{ github.run_number }}
           region: eu-west-1
-          deployment_package: deploy.zip
+          deployment_package: server/deploy.zip
