@@ -15,12 +15,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
+      - name: Checkout source code
+        uses: actions/checkout@v1
 
-      - uses: chrislennon/action-aws-cli@v1.1
-      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/server/latest
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+
+      - name: Deploy to EB
+          uses: einaregilsson/beanstalk-deploy@v14
+          with:
+            aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            application_name: ${{ secrets.AWS_EB_APP }}
+            environment_name: ${{ secrets.AWS_EB_ENV }}
+            version_label: ${{ secrets.AWS_EB_APP }}-deploy-instance-${{ github.run_id }}.${{ github.run_number }}
+            region: eu-west-1
+            deployment_package: deploy.zip

@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
 
 import { ToolsModule } from './tools/tools.module';
 import { ServicesModule } from './services/services.module';
@@ -13,15 +11,6 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: join(
-        __dirname,
-        '..',
-        '..',
-        'client',
-        process.env.NODE_ENV === 'production' ? 'latest' : 'dist',
-      ),
-    }),
     TypeOrmModule.forRoot({
       type: config.get('db.type'),
       host: process.env.RDS_HOSTNAME || config.get('db.host'),
