@@ -1,7 +1,7 @@
 name: deploy-elasticbeanstalk
 
 on:
-  workflow_dispatch:
+#  workflow_dispatch:
   push:
     branches:
       - master
