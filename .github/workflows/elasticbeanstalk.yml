@@ -21,7 +21,7 @@ jobs:
 
       - name: Build Server
         working-directory: ./server
-      - run: |
+        run: |
           npm install
           npm run build
 
