@@ -28,7 +28,7 @@ jobs:
 
       - name: Create Deploy Package
         working-directory: ./server
-        run: zip -r deploy.zip ./dist/ ./client/ ./config/ ./package.json
+        run: zip -r deploy.zip ./.ebextensions/ ./dist/ ./client/ ./config/ ./package.json
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v14
