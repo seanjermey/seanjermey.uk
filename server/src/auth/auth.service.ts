@@ -22,9 +22,9 @@ export class AuthService {
    *
    * @param authCredentialsDto
    */
-  async register(authCredentialsDto: AuthCredentialsDto): Promise<UserEntity> {
-    return await this.userRepository.register(authCredentialsDto);
-  }
+  // async register(authCredentialsDto: AuthCredentialsDto): Promise<UserEntity> {
+  //   return await this.userRepository.register(authCredentialsDto);
+  // }
 
   /**
    *

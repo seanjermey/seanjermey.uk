@@ -2,6 +2,7 @@
 .prettierrc
 /test
 .notes
+/client/**
 
 # compiled output
 /dist

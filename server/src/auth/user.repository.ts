@@ -13,29 +13,29 @@ export class UserRepository extends Repository<UserEntity> {
    *
    * @param authCredentialsDto
    */
-  async register({
-    username,
-    password,
-  }: AuthCredentialsDto): Promise<UserEntity> {
-    try {
-      const user = await this.save({
-        username,
-        password: await this.hashPassword(password),
-      });
-
-      delete user.password;
-
-      return user;
-    } catch (err) {
-      switch (err.code) {
-        case '23505':
-          throw new ConflictException('Username already exists');
-
-        default:
-          throw new InternalServerErrorException();
-      }
-    }
-  }
+  // async register({
+  //   username,
+  //   password,
+  // }: AuthCredentialsDto): Promise<UserEntity> {
+  //   try {
+  //     const user = await this.save({
+  //       username,
+  //       password: await this.hashPassword(password),
+  //     });
+  //
+  //     delete user.password;
+  //
+  //     return user;
+  //   } catch (err) {
+  //     switch (err.code) {
+  //       case '23505':
+  //         throw new ConflictException('Username already exists');
+  //
+  //       default:
+  //         throw new InternalServerErrorException();
+  //     }
+  //   }
+  // }
 
   /**
    *

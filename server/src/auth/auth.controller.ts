@@ -22,12 +22,12 @@ export class AuthController {
    *
    * @param authCredentialsDto
    */
-  @Post('/api/auth/register')
-  register(
-    @Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto,
-  ): Promise<UserEntity> {
-    return this.authService.register(authCredentialsDto);
-  }
+  // @Post('/api/auth/register')
+  // register(
+  //   @Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto,
+  // ): Promise<UserEntity> {
+  //   return this.authService.register(authCredentialsDto);
+  // }
 
   /**
    *
