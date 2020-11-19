@@ -60,11 +60,10 @@ export class ServiceFormComponent implements OnInit {
       featured: value.featured,
     };
 
-    this.serviceEntityService.upsert(service).pipe(
-      tap((value) => {
-        this.form.reset();
-      })
-    );
+    this.serviceEntityService.upsert(service);
+
+    this.form.reset();
+    this.showModal = false;
   }
 
   onDelete(): void {

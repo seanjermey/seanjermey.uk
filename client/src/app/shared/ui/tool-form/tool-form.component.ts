@@ -60,11 +60,10 @@ export class ToolFormComponent implements OnInit {
       featured: value.featured,
     };
 
-    this.toolEntityService.upsert(tool).pipe(
-      tap((value) => {
-        this.form.reset();
-      })
-    );
+    this.toolEntityService.upsert(tool);
+
+    this.form.reset();
+    this.showModal = false;
   }
 
   onDelete(): void {

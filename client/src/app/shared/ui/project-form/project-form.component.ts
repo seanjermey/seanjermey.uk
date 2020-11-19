@@ -60,11 +60,10 @@ export class ProjectFormComponent implements OnInit {
       featured: value.featured,
     };
 
-    this.projectEntityService.upsert(project).pipe(
-      tap((value) => {
-        this.form.reset();
-      })
-    );
+    this.projectEntityService.upsert(project);
+
+    this.form.reset();
+    this.showModal = false;
   }
 
   onDelete(): void {

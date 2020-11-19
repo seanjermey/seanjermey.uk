@@ -60,11 +60,10 @@ export class ProductFormComponent implements OnInit {
       featured: value.featured,
     };
 
-    this.productEntityService.upsert(product).pipe(
-      tap((value) => {
-        this.form.reset();
-      })
-    );
+    this.productEntityService.upsert(product);
+
+    this.form.reset();
+    this.showModal = false;
   }
 
   onDelete(): void {
