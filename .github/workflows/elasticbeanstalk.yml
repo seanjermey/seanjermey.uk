@@ -5,9 +5,10 @@ on:
     branches:
       - master
     paths:
-      - 'server/**'
+      - './**'
 
 jobs:
+  buid:
     runs-on: ubuntu-latest
 
     steps:
