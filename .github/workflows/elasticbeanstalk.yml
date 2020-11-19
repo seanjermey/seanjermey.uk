@@ -26,9 +26,9 @@ jobs:
           npm install
           npm run build
 
-      - name: create deploy package
+      - name: Create Deploy Package
         working-directory: ./server
-        run: zip -r ./deploy.zip ./dist/ ./client/ ./config/ ./package.json
+        run: zip -r deploy.zip ./dist/ ./client/ ./config/ ./package.json
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v14
@@ -39,4 +39,4 @@ jobs:
           environment_name: ${{ secrets.AWS_EB_ENV }}
           version_label: ${{ secrets.AWS_EB_APP }}-deploy-instance-${{ github.run_id }}.${{ github.run_number }}
           region: eu-west-1
-          deployment_package: ./deploy.zip
+          deployment_package: ./server/deploy.zip
