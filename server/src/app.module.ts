@@ -8,9 +8,14 @@ import { AssetsModule } from './assets/assets.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as config from 'config';
 import { AuthModule } from './auth/auth.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'client', 'dist'),
+    }),
     TypeOrmModule.forRoot({
       type: config.get('db.type'),
       host: process.env.RDS_HOSTNAME || config.get('db.host'),

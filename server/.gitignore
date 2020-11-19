@@ -1,6 +1,7 @@
-# junk
+# exclude
 .prettierrc
 /test
+.notes
 
 # compiled output
 /dist
